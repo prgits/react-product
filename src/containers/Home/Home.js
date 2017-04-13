@@ -10,9 +10,21 @@ export default class Home extends Component {
         <Helmet title="Home"/>
         <div className={styles.masthead}>
           <div className="container">
+            <div className={styles.logo}>
+              <p>
+                <img src={logoImage}/>
+              </p>
+            </div>
             <h1>{config.app.title}</h1>
 
             <h2>{config.app.description}</h2>
+
+            <p>
+              <a className={styles.github} href="https://github.com/erikras/react-redux-universal-hot-example"
+                 target="_blank">
+                <i className="fa fa-github"/> View on Github
+              </a>
+            </p>
           </div>
         </div>
 

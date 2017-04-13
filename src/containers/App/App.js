@@ -96,11 +96,19 @@ export default class App extends Component {
 
               {!user &&
               <LinkContainer to="/login">
+<<<<<<< HEAD
                 <NavItem eventKey={7}>Login</NavItem>
               </LinkContainer>}
               {user &&
               <LinkContainer to="/logout">
                 <NavItem eventKey={8} className="logout-link" onClick={this.handleLogout}>
+=======
+                <NavItem eventKey={6}>Login</NavItem>
+              </LinkContainer>}
+              {user &&
+              <LinkContainer to="/logout">
+                <NavItem eventKey={7} className="logout-link" onClick={this.handleLogout}>
+>>>>>>> cd140900d78c1e737af38699abeefa72ca59e87f
                   Logout
                 </NavItem>
               </LinkContainer>}
