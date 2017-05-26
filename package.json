@@ -1,7 +1,7 @@
 {
-  "name": "react-redux-universal-hot-example",
+  "name": "react-product",
   "description": "Example of an isomorphic (universal) webapp using react redux and hot reloading",
-  "author": "Erik Rasmussen <rasmussenerik@gmail.com> (http://github.com/erikras)",
+  "author": "Template",
   "license": "MIT",
   "version": "0.9.0",
   "repository": {
@@ -31,12 +31,9 @@
     "postinstall": "npm run build",
     "lint": "eslint -c .eslintrc src api",
     "start-dev": "better-npm-run start-dev",
-    "start-dev-api": "better-npm-run start-dev-api",
     "watch-client": "better-npm-run watch-client",
     "dev": "concurrent --kill-others \"npm run watch-client\" \"npm run start-dev\"",
-    "test": "karma start",
-    "test-node": "./node_modules/mocha/bin/mocha $(find api -name '*-test.js') --compilers js:babel-core/register",
-    "test-node-watch": "./node_modules/mocha/bin/mocha $(find api -name '*-test.js') --compilers js:babel-core/register --watch"
+    "test": "karma start"
   },
   "betterScripts": {
     "start-prod": {
@@ -120,9 +117,9 @@
     "multireducer": "^2.0.0",
     "piping": "^0.3.0",
     "pretty-error": "^1.2.0",
-    "react": "0.14.8",
+    "react": "0.14.9",
     "react-bootstrap": "^0.28.1",
-    "react-dom": "0.14.8",
+    "react-dom": "0.14.9",
     "react-helmet": "^2.2.0",
     "react-inline-css": "^2.0.0",
     "react-redux": "^4.0.0",
