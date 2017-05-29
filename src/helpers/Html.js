@@ -37,7 +37,7 @@ export default class Html extends Component {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           {/* styles (will be present only in production with webpack extract text plugin) */}
           {Object.keys(assets.styles).map((style, key) =>
-            <link async="async" defer="defer" href={assets.styles[style]} key={key} media="all"
+            <link href={assets.styles[style]} key={key} media="bogus"
                   rel="stylesheet" type="text/css" charSet="UTF-8"/>
           )}
 
@@ -49,9 +49,12 @@ export default class Html extends Component {
         </head>
         <body>
           <div id="content" dangerouslySetInnerHTML={{__html: content}}/>
-          {this.loadCss}
           <script async dangerouslySetInnerHTML={{__html: `window.__data=${serialize(store.getState())};`}} charSet="UTF-8"/>
           <script async src={assets.javascript.main} charSet="UTF-8"/>
+          {Object.keys(assets.styles).map((style, key) =>
+            <link href={assets.styles[style]} key={key}
+                  rel="stylesheet" type="text/css" charSet="UTF-8"/>
+          )}
         </body>
       </html>
     );
