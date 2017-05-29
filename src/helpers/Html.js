@@ -13,11 +13,42 @@ import Helmet from 'react-helmet';
  * by the server.js file.
  */
 export default class Html extends Component {
+  constructor(props) {
+    super(props);
+
+    // This binding is necessary to make `this` work in the callback
+    // this.loadCss = this.loadCss.bind(this);
+    this.state = {
+      mainCssMedia: 'none',
+    };
+  }
   static propTypes = {
     assets: PropTypes.object,
     component: PropTypes.node,
-    store: PropTypes.object
+    store: PropTypes.object,
   };
+
+  componentWillMount() {
+    this.setState({mainCssMedia: 'all'});
+  }
+
+  // loadCss = (event) => {
+  //   event.preventDefault();
+  //   console.log(1);
+  //   // append css dynamically to head
+  //   // var head = document.getElementsByTagName('head');
+  //   // var element = document.createElement('link');
+  //   // element.rel = 'stylesheet';
+  //   // element.type = 'text/css';
+  //   // element.href = '//www.my-external-css.com/my.css';
+  //   //
+  //   // //here's the magic
+  //   // element.media = 'non-existant-media';
+  //   // head.appendChild(element, head.firstChild);
+  //   // setTimeout(function () {
+  //   //   element.media = 'all';
+  //   // });
+  // };
 
   render() {
     const {assets, component, store} = this.props;
@@ -37,7 +68,7 @@ export default class Html extends Component {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           {/* styles (will be present only in production with webpack extract text plugin) */}
           {Object.keys(assets.styles).map((style, key) =>
-            <link async="async" defer="defer" href={assets.styles[style]} key={key} media="all"
+            <link async="async" defer="defer" href={assets.styles[style]} key={key} media={this.state.mainCssMedia}
                   rel="stylesheet" type="text/css" charSet="UTF-8"/>
           )}
 
