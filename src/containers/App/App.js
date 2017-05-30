@@ -49,6 +49,13 @@ export default class App extends Component {
   //   event.preventDefault();
   //   this.props.logout();
   // };
+  componentDidMount() {
+    console.log(1);
+    const cssLinks = document.getElementsByClassName('css-init');
+    for (var i = 0; i < cssLinks.length; i++){
+      cssLinks[i].setAttribute('media', 'screen, projection');
+    }
+  }
 
   render() {
     // const {user} = this.props;
