@@ -3,6 +3,14 @@ import config from '../../config';
 import Helmet from 'react-helmet';
 
 export default class Home extends Component {
+  componentDidMount() {
+    console.log(1);
+    const cssLinks = document.getElementsByClassName('css-init');
+    for (var i = 0; i < cssLinks.length; i++){
+      cssLinks[i].setAttribute('media', 'screen, projection');
+    }
+  }
+
   render() {
     // const styles = require('./Home.scss');
     require('./Home.css');
